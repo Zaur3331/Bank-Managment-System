@@ -1,0 +1,94 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    cout<<"Welcome to BMS!"<<endl;
+    cout<<"You can manage your Bank acc. with this app !"<<endl;
+    int money_in_the_bank = 0;
+    int sum_deposit = 0;
+    int sum_withdraws = 0;
+    int answer;
+    string username, password;
+    string username1, password1;
+    do{
+    
+    if(answer == 1)
+    {
+        cout<<"Select your username:"<<endl;
+        cin>>username;
+        cout<<"Select your password"<<endl;
+        cin>>password;
+      
+        username1 = username;  
+        password1 = password;
+        
+        cout<<"Your username is: "<<username1<<" and password "<<password1<<endl;
+        this_thread::sleep_for(chrono::seconds(2));
+    }
+    
+    if(answer == 2)
+    {
+        cout<<"Money in the account:"<<money_in_the_bank<<endl;
+        int deposit_money;
+        cout<<"Write the value you want to add to the account: ";
+        cin>>deposit_money;
+        sum_deposit = sum_deposit + deposit_money;
+        money_in_the_bank = deposit_money + money_in_the_bank;
+        cout<<"Money in the account "<<money_in_the_bank<<endl;
+        this_thread::sleep_for(chrono::seconds(2));
+    }
+    
+    if(answer == 3)
+    {
+        cout<<"Your money in the bank is "<< money_in_the_bank<<endl;
+        cout<<"Please select the value you want to withdraw"<<endl;
+        
+        int money_withdraw;
+        cin>>money_withdraw;
+        
+        if(money_in_the_bank >= money_withdraw)
+        {
+            money_in_the_bank = money_in_the_bank - money_withdraw;
+            cout<<"Money withdrawed: "<<money_withdraw<<endl;
+            cout<<"Money in the account: "<< money_in_the_bank<<endl;
+            sum_withdraws = sum_withdraws + money_withdraw;
+            this_thread::sleep_for(chrono::seconds(2));
+        }
+        else cout<<"Sorry there is not that much money in your acc"<<endl;
+    }
+    
+    if(answer == 4)
+    {
+        cout<<"Username: "<<username1<<endl;
+        cout<<"Password: "<<password1<<endl;
+        cout<<"Money in the account: "<<money_in_the_bank;
+        cout<<"The sum of deposits added: "<<sum_deposit;
+        cout<<"The sum of withdraws taken: "<<sum_withdraws;
+        
+        this_thread::sleep_for(chrono::seconds(3));  
+        
+        
+    }
+        cout<<"---------------------------"<<endl;
+        cout<<"1. Open a Account"<<endl;    
+        cout<<"2. Deposit"<<endl;
+        cout<<"3. Withdraw"<<endl;
+        cout<<"4. Show account Details"<<endl;
+        cout<<"0. Exit"<<endl; 
+        cout<<"---------------------------"<<endl;
+        
+        cout<<"Please select your command"<<endl;
+        cin>>answer;
+        if(answer == 0) break;
+        
+    }   while(answer != 0);
+    
+    
+    
+    
+    
+    
+    
+    
+        return 0;
+}
